@@ -6,7 +6,6 @@ import java.util.Arrays;
  * A resizable-array implementation of the {@link IntQueue} interface. The head of
  * the queue starts out at the head of the array, allowing the queue to grow and
  * shrink in constant time.
- *
  * TODO: This implementation contains three bugs! Use your tests to determine the
  * source of the bugs and correct them!
  *
@@ -15,22 +14,20 @@ import java.util.Arrays;
  */
 public class ArrayIntQueue implements IntQueue {
 
-    /**
+  /**
      * An array holding this queue's data
      */
-    private int[] elementData;
+  private int[] elementData;
 
-    /**
-     * Index of the next dequeue-able value
-     */
-    private int head;
+  /** Index of the next dequeue-able value     */
+  private int head;
 
-    /**
+  /**
      * Current size of queue
      */
-    private int size;
+  private int size;
 
-    /**
+  /**
      * The initial size for new instances of ArrayQueue
      */
   private static final int INITIAL_SIZE = 10;
@@ -51,13 +48,13 @@ public class ArrayIntQueue implements IntQueue {
     head = 0;
   }
 
-    /** {@inheritDoc} */
+  /** {@inheritDoc} */
   public Integer dequeue() {
     Integer value = elementData[head];
     head = (head + 1) % elementData.length;
     size--; 
     return value;
-    }
+  }
 
   /** {@inheritDoc} */
   public boolean enqueue(Integer value) {
@@ -73,6 +70,8 @@ public class ArrayIntQueue implements IntQueue {
     return size == 0;
   }
 
+
+
   /** {@inheritDoc} */
   public Integer peek() {
     if (isEmpty()) {
@@ -80,7 +79,7 @@ public class ArrayIntQueue implements IntQueue {
     }
     return elementData[head];
   }
-
+  //daalgavar p
   /** {@inheritDoc} */
   public int size() {
     return size;
@@ -105,3 +104,5 @@ public class ArrayIntQueue implements IntQueue {
     }
   }
 }
+
+

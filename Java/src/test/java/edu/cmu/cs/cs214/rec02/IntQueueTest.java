@@ -39,27 +39,31 @@ public class IntQueueTest {
      */
   @Before
     public void setUp() {
-    // LinkedIntQueue тестлэх үед энэ мөрийг идэвхтэй болгоно
+    // comment/uncomment these lines to test each class
+    //LinkedIntQueue testleh uyd ene muriig idewhtei bolgono.
     // mQueue = new LinkedIntQueue();
         
-    // ArrayIntQueue тестлэх үед энэ мөрийг идэвхтэй болгоно
+    // comment/uncomment these lines to test each class
+    //ArrayIntQueue testleh uyd ene muriig idewhtei bolgono.
     mQueue = new ArrayIntQueue();  
 
     testList = new ArrayList<>(List.of(1, 2, 3));
   }
 
 
-    @Test
+  @Test
+    // Шинээр үүсгэсэн mQueue хоосон байх ёстой
     public void testIsEmpty() {
-        // This is an example unit test
-        assertTrue(mQueue.isEmpty());
-    }
+    // This is an example unit test
+    assertTrue(mQueue.isEmpty());
+  }
 
+  // Элемент нэмэх үед хоосон биш болохыг шалгах
   @Test
     public void testNotEmpty() {
     // TODO: write your own unit test
     mQueue.enqueue(5);
-    assertFalse(mQueue.isEmpty());
+    assertFalse(mQueue.isEmpty()); //Хэрэв хоосон биш бол тест амжилттай
   }
 
   @Test
@@ -67,13 +71,15 @@ public class IntQueueTest {
     assertNull(mQueue.peek());
   }
 
+  // Элементтэй үед peek() шалгах
   @Test
     public void testPeekNoEmptyQueue() {
     // TODO: write your own unit test
     mQueue.enqueue(10);
-    assertEquals(Integer.valueOf(10), mQueue.peek());
+    assertEquals(Integer.valueOf(10), mQueue.peek()); //peek() хийхэд 10-г буцаана
   }
 
+  // enqueue() нэмэх ажиллагааг шалгах
   @Test
     public void testEnqueue() {
     // This is an example unit test
@@ -84,19 +90,23 @@ public class IntQueueTest {
     }
   }
 
+  // dequeue() ажиллагааг шалгах
   @Test
     public void testDequeue() {
     // TODO: write your own unit test
+    // 1, 2, 3-г enqueue() хийнэ.
     mQueue.enqueue(1);
     mQueue.enqueue(2);
     mQueue.enqueue(3);
     
+    // dequeue() хийхэд дарааллаар 1, 2, 3 гарч ирэх ёстой.
     assertEquals(Integer.valueOf(1), mQueue.dequeue());
     assertEquals(Integer.valueOf(2), mQueue.dequeue());
     assertEquals(Integer.valueOf(3), mQueue.dequeue());
 
   }
 
+  // Хязгаар хэтэрсэн үед томруулах TEST
   @Test
     public void testEnsureCapacity() {
     for (int i = 0; i < 15; i++) {
@@ -105,16 +115,20 @@ public class IntQueueTest {
     assertEquals("Queue should expand when more elements are added", 15, mQueue.size());
   }
 
-    @Test
+  // clear() шалгах
+  @Test
     public void testClearQueue() {
-        mQueue.enqueue(1);
-        mQueue.enqueue(2);
-        mQueue.clear();
-        assertTrue("Clear hiisnii daraa Queue hooson baih ystoi", mQueue.isEmpty());
-        assertNull("Clear hiisen daraalliig harahad Null baih ystoi", mQueue.peek());
+    //  2 тоо нэмнэ
+    mQueue.enqueue(1);
+    mQueue.enqueue(2);
+    mQueue.clear(); //Бүгдийг устгах
+    assertTrue("Clear hiisnii daraa Queue hooson baih ystoi", mQueue.isEmpty()); // true байна
+    assertNull("Clear hiisen daraalliig harahad Null baih ystoi", mQueue.peek()); // null буцаана
         
-    }
+  }
 
+
+  // Файл уншиж, өгөгдөл тестлэх
   @Test
     public void testContent() throws IOException {
     // This is an example unit test
