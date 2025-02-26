@@ -64,7 +64,6 @@ public class IntQueueTest {
     mQueue.enqueue(5);
     assertTrue(mQueue.isEmpty()); //Хэрэв хоосон биш бол тест амжилттай
   }
-
   @Test
     public void testPeekEmptyQueue() {
     assertNull(mQueue.peek());

@@ -79,7 +79,7 @@ public class ArrayIntQueue implements IntQueue {
     }
     return elementData[head];
   }
-  //daalgavar p
+
   /** {@inheritDoc} */
   public int size() {
     return size;
